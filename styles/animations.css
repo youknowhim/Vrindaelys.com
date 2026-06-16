@@ -1,0 +1,6 @@
+.rv{opacity:0;transform:translateY(36px);will-change:opacity,transform;transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.rv.v{opacity:1;transform:translateY(0)}
+
+.rv-mask { display: block; overflow: hidden; }
+.rv-mask .rv-inner { display: block; transform: translateY(110%); opacity: 0; transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.8s ease; will-change: transform, opacity; }
+.rv-mask.v .rv-inner { transform: translateY(0); opacity: 1; }

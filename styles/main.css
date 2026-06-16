@@ -1,0 +1,127 @@
+:root {
+    --bg: #060913;
+    --bg-raised: #101423;
+    --bg-tint: rgba(92,124,250,0.04);
+    --text: #ffffff;
+    --text-2: rgba(255,255,255,0.7);
+    --text-3: rgba(255,255,255,0.4);
+    --accent: #5c7cfa;
+    --accent-2: #748ffc;
+    --accent-glow: rgba(92, 124, 250, 0.15);
+    --green: #20c997;
+    --red: #fa5252;
+    --border: rgba(255,255,255,0.1);
+    --border-h: rgba(255,255,255,0.25);
+
+    --f1: 'Space Grotesk', system-ui, sans-serif;
+    --f2: 'Inter', system-ui, sans-serif;
+
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --nav-h: 72px;
+    --r: 10px;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+::selection{background:var(--accent);color:#fff}
+html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
+
+body{
+    font-family:var(--f2);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+    cursor:none;
+}
+
+a{color:inherit;text-decoration:none;cursor:none}
+button{cursor:none;border:none;background:none;font-family:inherit}
+input,textarea,select{cursor:none;font-family:inherit}
+
+.container{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+
+/* Ambient Glow & Noise Overlay */
+.glow-orb {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw; height: 90vw;
+    background: radial-gradient(circle, rgba(59, 76, 192, 0.25) 0%, rgba(120, 82, 250, 0.15) 30%, rgba(250, 82, 130, 0.05) 60%, rgba(0,0,0,0) 80%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    animation: pulseOrb 12s infinite alternate ease-in-out;
+    filter: blur(80px);
+}
+@keyframes pulseOrb {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+.noise {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');
+}
+
+/* Canvas */
+#bgCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none}
+#cursorCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;pointer-events:none}
+
+/* Click FX */
+#fxLayer{position:fixed;inset:0;z-index:99990;pointer-events:none;overflow:hidden}
+
+.fx-ring{
+    position:absolute;
+    border-radius:50%;
+    border:2px solid var(--accent);
+    transform:translate(-50%,-50%) scale(0);
+    opacity:.7;
+    animation:ring-expand .7s var(--ease) forwards;
+}
+.fx-ring.r2{border-color:var(--green);animation-delay:.08s;animation-duration:.9s}
+.fx-ring.r3{border-color:var(--red);animation-delay:.15s;animation-duration:1.1s}
+
+@keyframes ring-expand{to{transform:translate(-50%,-50%) scale(1);opacity:0}}
+
+.fx-dot{
+    position:absolute;
+    width:5px;height:5px;
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+}
+
+/* Progress */
+.scroll-bar{position:fixed;top:0;left:0;width:0;height:3px;background:var(--accent);z-index:10001;border-radius:0 2px 2px 0}
+
+/* Cursor */
+
+
+/* Labels */
+.tag{
+    display:inline-block;
+    font-family:var(--f1);
+    font-size:.7rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.18em;
+    color:var(--accent);margin-bottom:1.2rem;
+}
+
+.sec{padding:clamp(72px,12vh,160px) 0;position:relative;z-index:1}
+
+.sec-h{
+    font-family:var(--f1);
+    font-size:clamp(1.9rem,3.8vw,3rem);
+    font-weight:600;line-height:1.15;
+    letter-spacing:-.025em;
+    margin-bottom:2.5rem;max-width:660px;
+}
+
+.body-p{font-size:1.05rem;color:var(--text-2);max-width:520px;line-height:1.8}
+
+@media(max-width:768px){
+    .cur-dot,.cur-ring{display:none!important}
+    body{cursor:auto}
+    a,button,input,textarea,select{cursor:auto}
+}
