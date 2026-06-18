@@ -34,6 +34,16 @@
     const CONNECT_DIST = isMobile ? 100 : 160;
     const MOUSE_RADIUS = 200;
 
+    // Dala constellation palette: plum-dominant, amber/lichen/bone accents
+    const PARTICLE_COLORS = [
+        '128, 82, 255',   // Plum Voltage
+        '128, 82, 255',
+        '128, 82, 255',
+        '255, 184, 41',   // Amber Spark
+        '21, 132, 110',   // Lichen
+        '255, 255, 255'   // Bone
+    ];
+
     class Particle {
         constructor() {
             this.x = Math.random() * W;
@@ -48,6 +58,7 @@
             this.pushX = 0;
             this.pushY = 0;
             this.phase = Math.random() * Math.PI * 2;
+            this.color = PARTICLE_COLORS[Math.floor(Math.random() * PARTICLE_COLORS.length)];
         }
 
         update(time) {
@@ -91,7 +102,7 @@
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(92, 124, 250, ${this.alpha})`; 
+            ctx.fillStyle = `rgba(${this.color}, ${this.alpha})`;
             ctx.fill();
         }
     }
@@ -117,7 +128,7 @@
                     ctx.beginPath();
                     ctx.moveTo(a.x, a.y);
                     ctx.lineTo(b.x, b.y);
-                    ctx.strokeStyle = `rgba(92, 124, 250, ${opacity + mouseBoost})`;
+                    ctx.strokeStyle = `rgba(128, 82, 255, ${opacity + mouseBoost})`;
                     ctx.lineWidth = 1;
                     ctx.stroke();
                 }
@@ -163,7 +174,7 @@
                 if (cCtx) {
                     cCtx.beginPath();
                     cCtx.arc(w.x, w.y, radius, 0, Math.PI * 2);
-                    cCtx.strokeStyle = `rgba(92, 124, 250, ${a})`;
+                    cCtx.strokeStyle = `rgba(128, 82, 255, ${a})`;
                     cCtx.lineWidth = 2.5 - r * 0.6;
                     cCtx.stroke();
                 }
@@ -221,8 +232,8 @@
 
             // Glow halo
             const glow = cCtx.createRadialGradient(t.x, t.y, 0, t.x, t.y, size * 3);
-            glow.addColorStop(0, `rgba(59, 76, 192, ${alpha * 0.3})`);
-            glow.addColorStop(1, 'rgba(59, 76, 192, 0)');
+            glow.addColorStop(0, `rgba(128, 82, 255, ${alpha * 0.3})`);
+            glow.addColorStop(1, 'rgba(128, 82, 255, 0)');
             cCtx.beginPath();
             cCtx.arc(t.x, t.y, size * 3, 0, Math.PI * 2);
             cCtx.fillStyle = glow;
@@ -231,7 +242,7 @@
             // Core dot
             cCtx.beginPath();
             cCtx.arc(t.x, t.y, size, 0, Math.PI * 2);
-            cCtx.fillStyle = `rgba(59, 76, 192, ${alpha})`;
+            cCtx.fillStyle = `rgba(128, 82, 255, ${alpha})`;
             cCtx.fill();
         }
 
@@ -241,7 +252,7 @@
         for (let i = 1; i < trail.length; i++) {
             cCtx.lineTo(trail[i].x, trail[i].y);
         }
-        cCtx.strokeStyle = 'rgba(59, 76, 192, 0.12)';
+        cCtx.strokeStyle = 'rgba(128, 82, 255, 0.12)';
         cCtx.lineWidth = 1;
         cCtx.stroke();
     }
