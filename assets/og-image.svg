@@ -10,5 +10,5 @@
   <rect width="1200" height="630" fill="url(#glow)"/>
 
   <!-- Brand mark: the V only -->
-  <path d="M440 165 L600 465 L760 165" stroke="#8052ff" stroke-width="38" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M400 140 L600 510 L800 140" stroke="#8052ff" stroke-width="58" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
