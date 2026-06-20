@@ -1,0 +1,23 @@
+# Vrindaelys
+
+> Vrindaelys is a product engineering studio that builds full-stack software, AI agents, WhatsApp & voice automation, and SEO/AEO growth tools for businesses worldwide. We write the code, deploy the infrastructure, and monitor the dashboards — a technical partner, not a vendor.
+
+## About
+- Vrindaelys engineers performant digital products, platforms, and systems end-to-end: strategy, design, development, infrastructure, and growth.
+- Clients: CTOs, engineering leads, and founders who need production-grade systems.
+- Contact: contact@vrindaelys.com | +91 620 968 9309
+- Website: https://www.vrindaelys.com/
+
+## Products
+- Telemetry — Industry-specific AI growth optimization. Tracks user behavior page-by-page with live, country-wise, and periodic traffic charts plus AI insights that automatically optimize a site for search visibility.
+- Proxy — An intelligent, multi-channel autonomous AI agent. Handles inbound voice calls and WhatsApp conversations naturally, scheduling appointments and qualifying leads 24/7.
+- Root — In development (coming soon).
+
+## Services
+- Product Strategy & Design — research, wireframes, prototypes, design systems.
+- Full-Stack Development — React, Next.js, Node.js, Python; APIs, databases, real-time systems.
+- AI & Automation — intelligent agents, WhatsApp bots, calling systems, AI-powered optimization.
+- SEO, AEO & Growth — search engine optimization, answer engine optimization, data-driven growth.
+
+## Industries
+- Healthcare, CRM/Enterprise, EdTech, Restaurants, Hospitality, E-commerce/Retail, Finance/Insurance, and more.
