@@ -308,28 +308,21 @@
         if (sy > 50) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
 
-        // ---- HERO: parallax layers at different speeds ----
+        // ---- HERO: parallax the content as ONE cohesive block ----
+        // Move it slightly UP (and fade) as you scroll so the lines never cross
+        // each other and the metrics clear out before the ticker reaches them.
+        const heroContent = document.querySelector('.hero-content');
         const heroH1 = document.querySelector('.hero-h1');
-        const heroSub = document.querySelector('.hero-sub');
-        const heroChip = document.querySelector('.hero-chip');
-        const heroBtns = document.querySelector('.hero-btns');
-        const heroMetrics = document.querySelector('.hero-metrics');
-        
+
         const r = Math.max(0, Math.min(1, sy / window.innerHeight));
-        if (heroH1) { 
-            heroH1.style.transform = `translateY(${sy * 0.25}px) scale(${1 - r * 0.05})`; 
+        if (heroContent) {
+            heroContent.style.transform = `translateY(${-sy * 0.12}px)`;
+            heroContent.style.opacity = `${1 - r * 0.85}`;
         }
-        if (heroSub) { 
-            heroSub.style.transform = `translateY(${sy * 0.15}px)`; 
-        }
-        if (heroChip) { 
-            heroChip.style.transform = `translateY(${sy * 0.3}px)`; 
-        }
-        if (heroBtns) { 
-            heroBtns.style.transform = `translateY(${sy * 0.1}px)`; 
-        }
-        if (heroMetrics) { 
-            heroMetrics.style.transform = `translateY(${sy * 0.05}px)`; 
+        if (heroH1) {
+            // Subtle scale only — no vertical drift, so it can't overlap the sub.
+            heroH1.style.transform = `scale(${1 - r * 0.04})`;
+            heroH1.style.transformOrigin = 'left center';
         }
 
         // ---- SECTION HEADINGS: clip-path wipe + blur ----

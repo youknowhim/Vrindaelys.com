@@ -251,3 +251,24 @@ form{display:flex;flex-direction:column;gap:1.8rem}
     .kpi-row{grid-template-columns:repeat(3,1fr);gap:1rem}
     .statement-stats{flex-direction:column;gap:1.5rem}
 }
+
+/* Short viewports (laptops, landscape phones): keep the hero content — including
+   all three metrics — fully inside the screen and clear of the ticker below.
+   Top-align in normal flow instead of forcing 100vh centering. */
+@media(max-height:780px){
+    .hero{min-height:auto;align-items:flex-start;padding-top:calc(var(--nav-h) + 2rem);padding-bottom:3rem}
+    .hero-grid{align-items:center}
+    .hero-h1{margin-bottom:1.1rem}
+    .hero-sub{margin-bottom:1.3rem}
+    .hero-btns{margin-bottom:1.6rem}
+    .scroll-cue{display:none}
+}
+
+/* Phones: tighten the stacked hero spacing so the metrics stay above the ticker. */
+@media(max-width:600px){
+    .hero{min-height:auto;align-items:flex-start;padding-top:calc(var(--nav-h) + 2rem);padding-bottom:2.5rem}
+    .hero-h1{margin-bottom:1.1rem}
+    .hero-sub{margin-bottom:1.2rem}
+    .hero-btns{margin-bottom:1.6rem}
+    .scroll-cue{display:none}
+}
