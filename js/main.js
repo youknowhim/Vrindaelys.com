@@ -634,11 +634,18 @@
     // =============================================
     // Reveal the hero as soon as the DOM is ready — do NOT wait for window 'load'
     // (which blocks on fonts, images and the external analytics script).
-    requestAnimationFrame(() => {
-        document.querySelectorAll('.hero .rv, .hero .rv-mask').forEach(el => {
-            const d = parseInt(el.dataset.d || 0);
-            setTimeout(() => el.classList.add('v'), d);
+    {
+        const heroEls = document.querySelectorAll('.hero .rv, .hero .rv-mask');
+        // 1) Commit the initial hidden state to the screen with a forced reflow,
+        //    so the browser has a "from" frame to animate out of…
+        void document.documentElement.offsetHeight;
+        // 2) …then, on the next frame, trigger each element's staggered transition.
+        requestAnimationFrame(() => {
+            heroEls.forEach(el => {
+                const d = parseInt(el.dataset.d || 0);
+                setTimeout(() => el.classList.add('v'), d);
+            });
         });
-    });
+    }
 
 })();
