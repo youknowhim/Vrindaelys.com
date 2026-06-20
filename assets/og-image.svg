@@ -12,7 +12,6 @@
   <!-- Wordmark: blue V-with-dot mark serves as the initial letter -->
   <g transform="translate(140,161.25) scale(0.83)">
     <path d="M0 25 L42 105 L84 25" stroke="#8052ff" stroke-width="11" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="42" cy="53" r="8" fill="#8052ff"/>
   </g>
 
   <text x="214" y="248" font-family="'Space Grotesk', Arial, sans-serif" font-size="92" font-weight="600" fill="#ffffff" letter-spacing="-2">rindaelys</text>

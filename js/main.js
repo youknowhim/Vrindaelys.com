@@ -632,10 +632,12 @@
     // =============================================
     //  HERO REVEAL
     // =============================================
-    window.addEventListener('load', () => {
+    // Reveal the hero as soon as the DOM is ready — do NOT wait for window 'load'
+    // (which blocks on fonts, images and the external analytics script).
+    requestAnimationFrame(() => {
         document.querySelectorAll('.hero .rv, .hero .rv-mask').forEach(el => {
             const d = parseInt(el.dataset.d || 0);
-            setTimeout(() => el.classList.add('v'), 250 + d);
+            setTimeout(() => el.classList.add('v'), d);
         });
     });
 
