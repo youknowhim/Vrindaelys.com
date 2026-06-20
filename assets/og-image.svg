@@ -9,7 +9,7 @@
   <rect width="1200" height="630" fill="#000000"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
 
-  <!-- Wordmark: blue V-with-dot mark serves as the initial letter -->
+  <!-- Wordmark: blue V mark serves as the initial letter -->
   <g transform="translate(140,161.25) scale(0.83)">
     <path d="M0 25 L42 105 L84 25" stroke="#8052ff" stroke-width="11" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
